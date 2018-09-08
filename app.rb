@@ -12,7 +12,11 @@ end
 
 def convert_to_nato(str)
   str.each_char do |char|
-    puts "#{char.upcase} as #{nato_alphaber[char.to_sym]}"
+    if char != ' '
+      puts "#{char.upcase} as #{nato_alphaber[char.to_sym]}"
+    else
+      puts ' '
+    end
   end
 end
 
