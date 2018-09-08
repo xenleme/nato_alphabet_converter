@@ -12,12 +12,16 @@ module NatoAlphabetConverter
   end
 
   def self.convert_to_nato(str)
+    result = []
+
     str.each_char do |char|
       if char != ' '
-        puts "#{char.upcase} as #{self.nato_alphaber[char.to_sym]}"
+        result << "#{char.upcase} as #{self.nato_alphaber[char.to_sym]}"
       else
-        puts ' '
+        result << ' '
       end
     end
+    
+    return result
   end
 end
