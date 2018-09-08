@@ -1,5 +1,5 @@
 def nato_alphaber
-  NATO = {
+  nato = {
     a: 'Alpha', b: 'Bravo', c: 'Charlie', d: 'Delta',
     e: 'Echo', f: 'Foxtrot', g: 'Golf', h: 'Hotel',
     i: 'India', j: 'Juliet', k: 'Kilo', l: 'Lima',
@@ -10,5 +10,10 @@ def nato_alphaber
   }
 end
 
-def convert_str(str)
+def convert_to_nato(str)
+  str.each_char do |char|
+    puts "#{char.upcase} as #{nato_alphaber[char.to_sym]}"
+  end
 end
+
+convert_to_nato('john doe')
