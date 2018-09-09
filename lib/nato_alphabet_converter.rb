@@ -14,14 +14,18 @@ module NatoAlphabetConverter
   def self.convert_to_nato(str)
     result = []
 
-    str.each_char do |char|
-      if char != ' '
-        result << "#{char.upcase} as #{self.nato_alphaber[char.to_sym]}"
-      else
-        result << ' '
+    if str.match(/[0-9]|[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/)
+      return 'Please enter the correct data'
+    else
+      str.each_char do |char|
+        if char != ' '
+          result << "#{char.upcase} as #{self.nato_alphaber[char.to_sym]}"
+        else
+          result << ' '
+        end
       end
     end
-    
+
     return result
   end
 end
