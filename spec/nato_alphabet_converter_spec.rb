@@ -21,10 +21,10 @@ RSpec.describe NatoAlphabetConverter do
 
   it 'returns notice if passed incorrect attributes' do
     expect(NatoAlphabetConverter.convert_to_nato('*&)$')).to eq(
-      'Please enter the correct data'
+      'You entered incorrect data.'
     )
     expect(NatoAlphabetConverter.convert_to_nato('123456789')).to eq(
-      'Please enter the correct data'
+      'You entered incorrect data.'
     )
   end
 end

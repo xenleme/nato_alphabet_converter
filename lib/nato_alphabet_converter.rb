@@ -11,18 +11,22 @@ module NatoAlphabetConverter
     }
   end
 
+  def self.check_attribute(attribute)
+    if attribute.match(/[0-9]|[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/)
+      abort 'You entered incorrect data.'
+    end
+  end
+
   def self.convert_to_nato(str)
+    self.check_attribute(str)
+    
     result = []
 
-    if str.match(/[0-9]|[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/)
-      return 'Please enter the correct data'
-    else
-      str.each_char do |char|
-        if char != ' '
-          result << "#{char.upcase} as #{self.nato_alphaber[char.to_sym]}"
-        else
-          result << ' '
-        end
+    str.each_char do |char|
+      if char != ' '
+        result << "#{char.upcase} as #{self.nato_alphaber[char.to_sym]}"
+      else
+        result << ' '
       end
     end
 
